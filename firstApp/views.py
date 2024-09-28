@@ -14,7 +14,7 @@ def Responder(request, name):
 def Responder2(request, name):
    try:
     keyName = list(Names.keys())
-    curName = keyName[name]
+    curName = keyName[name-1]
     return HttpResponseRedirect(curName)
    except:
         return HttpResponseNotFound("404: No one I know with that name !")

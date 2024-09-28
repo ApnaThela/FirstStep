@@ -5,6 +5,17 @@ from django.urls import reverse
 
 Names ={"Tushar": "This is Tushar's space!", "Vikas":"This is Vikas' space!", "Dippu":"Ye Dippu ka thela hai!"}
 
+def Responder3(request):
+     keyName = list(Names.keys())
+     list_items=""
+     for i in keyName:
+         capital_name = i.capitalize()
+         redirectPath = reverse("stringArg", args=[i])
+         list_items  += f"<li><a href=\"{redirectPath}\">{capital_name}</a></li>"
+    
+     responseData = f"<ul>{list_items}</ul>"
+     return HttpResponse(responseData)
+
 def Responder(request, name):
     try:
         curName = Names[name]

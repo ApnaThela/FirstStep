@@ -19,7 +19,10 @@ def Responder3(request):
 def Responder(request, name):
     try:
         curName = Names[name]
-        return HttpResponse(curName)
+        if(name == "Tushar"):
+            return render(request,'firstApp\Tushar.html', {'text': curName, 'title': name})
+        else:
+            return HttpResponse(curName)
     except:
         return HttpResponseNotFound("404: No one I know with that name !")
     
